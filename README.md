@@ -20,8 +20,8 @@ Hi, I'm Sooraj Nair, a cybersecurity Researcher with a passion for ethical hacki
 
 Here are some of the key projects that you'll find showcased on my website:
 
-1. **[NetNab](https://github.com/soorajnair/NetNab)** - A network scanning tool designed for penetration testing and vulnerability assessments.
-2. **[Headex](https://github.com/soorajnair/Headex)** - A header scanning tool for web security assessments.
+1. **[NetNab](https://github.com/SOORAJNAIR-IS-HERE/Netnab.git)** - A network scanning tool designed for penetration testing and vulnerability assessments.
+2. **[Headex](https://github.com/SOORAJNAIR-IS-HERE/Headex.git)** - A header scanning tool for web security assessments.
 3. **[BruteX](https://github.com/soorajnair/BruteX)** - A brute-forcing tool for password cracking.
    
 Feel free to explore these projects and reach out if you have any questions or feedback.
@@ -36,7 +36,7 @@ Visit my live portfolio website here:
 Feel free to contact me for collaboration, job opportunities, or questions about cybersecurity. You can reach me at:
 
 - Email: (soorajnair.is.here@gmail.com)
-- LinkedIn: [linkedin.com/in/soorajnair](https://linkedin.com/in/soorajnair)
+- LinkedIn: [linkedin.com/in/soorajnair](https://linkedin.com/in/sooraj-nair-)
 
 Thanks for visiting!
 
