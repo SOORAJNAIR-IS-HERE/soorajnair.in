@@ -1,4 +1,4 @@
-# Sooraj Nair's Portfolio Website
+# SJ's Portfolio Website
 
 Welcome to my personal portfolio website repository! This site showcases my work, skills, and projects in the cybersecurity field, including network security, penetration testing, and ethical hacking. Here, you can explore my tools, bug bounty contributions, and more.
 
