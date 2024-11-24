@@ -218,7 +218,7 @@ a:focus {
 @media (max-width: 991.98px) {   
     .navbar {
         padding: 15px;
-        background: #ffffff !important;
+        background: #000000 !important;
     }
     
     .navbar .navbar-brand {
@@ -1459,7 +1459,7 @@ a:focus {
 .footer {
     position: relative;
     margin-top: 45px;
-    background: #760310;
+    background: #000000;
 }
 
 .footer .container-fluid {
