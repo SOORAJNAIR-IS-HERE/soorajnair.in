@@ -1368,7 +1368,7 @@ a:focus {
 
 @media (max-width: 767.98px) {
     .contact .container-fluid {
-        background: black;
+        background: none;
     }
     
     .contact .contact-form {
