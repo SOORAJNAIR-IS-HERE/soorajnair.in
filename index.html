@@ -7,7 +7,7 @@
         <meta content="Developer Portfolio" name="keywords"> <!-- Updated keywords -->
         <meta content="Welcome to SJ's Developer Portfolio" name="description"> <!-- Updated description -->
     
-        <link href="/favicon.png" rel="icon" type="image/png">
+        <link href="img/favicon.png" rel="icon" type="image/png">
     
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
@@ -541,7 +541,7 @@ NetNab is a Python-based network scanning tool designed for penetration testing 
         <!-- Testimonial End -->
          
         
-<!-- Contact Start -->
+<<!-- Contact Start -->
 <div class="contact wow fadeInUp" data-wow-delay="0.1s" id="contact">
     <div class="container-fluid">
         <div class="container">
@@ -549,43 +549,46 @@ NetNab is a Python-based network scanning tool designed for penetration testing 
                 <!-- Static Image Section -->
                 <div class="col-md-4">
                     <img src="img/contact.gif" alt="Contact GIF" style="width: 150%; height: auto;" />
-                </div>
+                </div>                
 
-               <!-- Contact Form -->
-<div class="col-md-8">
-    <div class="contact-form">
-        <div id="success"></div>
-        <form name="sentMessage" id="contactForm" method="POST" action="/contact.php" novalidate="novalidate">
-            <div class="control-group">
-                <input type="text" class="form-control" id="name" name="from_name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                <p class="help-block"></p>
+                <!-- Contact Form -->
+                <div class="col-md-8">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form id="contactForm">
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" required />
+                                <p class="help-block"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required />
+                                <p class="help-block"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required />
+                                <p class="help-block"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control" name="message" placeholder="Message" required></textarea>
+                                <p class="help-block"></p>
+                            <div>
+                                <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="control-group">
-                <input type="email" class="form-control" id="email" name="from_email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                <p class="help-block"></p>
-            </div>
-            <div class="control-group">
-                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                <p class="help-block"></p>
-            </div>
-            <div class="control-group">
-                <textarea class="form-control" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                <p class="help-block"></p>
-            </div>
-            <div>
-                <button class="btn" type="submit" id="sendMessageButton">Send Message</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
-
+<!-- Contact End -->
 
 <!-- Add EmailJS Script -->
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function () {
-    emailjs.init("6U6tjumxc5qmOIjEB");
-})();
+        emailjs.init("6U6tjumxc5qmOIjEB");
+    })();
 
     // Form submission handler
     document.getElementById("contactForm").addEventListener("submit", function (event) {
@@ -602,7 +605,6 @@ NetNab is a Python-based network scanning tool designed for penetration testing 
             });
     });
 </script>
-
 
 
 <!-- Footer Start -->
