@@ -14,7 +14,7 @@ Hi, I'm Sooraj Nair, a cybersecurity Researcher with a passion for ethical hacki
 - CSS
 - JavaScript
 - Python (for tools)
-- Git & GitHub (version control}
+- Git & GitHub (version control)
 
 ## Projects
 
