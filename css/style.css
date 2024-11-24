@@ -122,7 +122,7 @@ a:focus {
 }
 
 .back-to-top i {
-    color: #ffffff;
+    color: #2e0101;
 }
 
 .back-to-top:hover i {
@@ -248,7 +248,7 @@ a:focus {
     margin-bottom: 45px;
     padding: 120px 0 0 0;
     overflow: hidden;
-    background: linear-gradient(rgba(4, 0, 16, 0.95), rgba(58, 2, 2, 0.95)), url('/img/hero-bg.jpg');
+    background: linear-gradient(rgba(38, 2, 2, 0.95), rgba(0, 0, 0, 0.95)), url('/img/hero-bg.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -299,7 +299,7 @@ a:focus {
     display: inline-block;
     margin: 0;
     height: 35px;
-    color: #ffffff;
+    color: #f42020;
     font-size: 35px;
     font-weight: 600;
 }
@@ -919,7 +919,7 @@ a:focus {
     width: 100%;
     margin: 45px 0;
     padding: 90px 0;
-    background: #EF233C;
+    background: #ca081e;
 }
 
 .banner .container {
