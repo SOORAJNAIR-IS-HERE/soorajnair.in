@@ -40,6 +40,7 @@
                         <a href="#portfolio" class="nav-item nav-link">Portfolio</a>
                         <a href="#knowledge" class="nav-item nav-link">Knowledge</a>
                         <a href="#youtube" class="nav-item nav-link">Youtube</a>
+                        <a href="#blog" class="nav-item nav-link">Blog</a>
                         <a href="#contact" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
@@ -589,12 +590,18 @@ NetNab is a Python-based network scanning tool designed for penetration testing 
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
     (function () {
-        emailjs.init("6U6tjumxc5qmOIjEB");
+        emailjs.init("6U6tjumxc5qmOIjEB"); // Initialize EmailJS with your User ID
     })();
 
     // Form submission handler
     document.getElementById("contactForm").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent form from reloading the page
+
+        // Log the form data to ensure 'from_email' and other fields are passed correctly
+        var formData = new FormData(this);
+        for (var pair of formData.entries()) {
+            console.log(pair[0]+ ': ' + pair[1]);  // Logs all form data in the console
+        }
 
         // Send email using EmailJS
         emailjs.sendForm("service_a895b1r", "template_rsfvyvd", this)
@@ -608,6 +615,41 @@ NetNab is a Python-based network scanning tool designed for penetration testing 
     });
 </script>
 
+<!-- Blog Start -->
+<div class="blog" id="blog">
+    <div class="container">
+        <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+            <p>From Blog</p>
+            <h2>Latest Articles</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="blog-item wow fadeInUp text-center" data-wow-delay="0.1s">
+                    <div class="blog-img">
+                        <img src="img/blog-1.jpg" alt="Blog">
+                    </div>
+                    <div class="blog-text">
+                        <h2>Prompt Engineering AI for Spyware Code</h2>
+                        <div class="blog-meta">
+                            <p><i class="far fa-user"></i>Sooraj Nair</p>
+                            <p><i class="far fa-list-alt"></i>Medium</p>
+                            <p><i class="far fa-calendar-alt"></i>25-Nov-2024</p>
+                            <p><i class="far fa-comments"></i>1</p>
+                        </div>
+                        <p>
+                            Mastering prompt engineering involves understanding how AI interprets language and how to adjust prompts for clarity. It enhances creativity, accuracy, and problem-solving.
+                        </p>   
+                            <p>In this blog, I explore strategies to secure AI models and ensure safe interactions. By understanding potential vulnerabilities and crafting secure prompts, developers can safeguard against misuse and enhance the reliability of AI systems.</p>
+                        
+                        <a class="btn" href="https://medium.com/@soorajnair.is.here/ai-prompting-for-spyware-c6ab12fdfa7d">Read More <i class="fa fa-angle-right"></i></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
 
 <!-- Footer Start -->
 <div class="footer wow fadeIn" data-wow-delay="0.3s">
