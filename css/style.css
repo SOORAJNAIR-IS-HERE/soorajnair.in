@@ -1380,15 +1380,29 @@ a:focus {
 /*******************************/
 /*********** Blog CSS **********/
 /*******************************/
+
 .blog {
     position: relative;
     width: 100%;
     padding: 45px 0 15px 0;
+    display: flex;
+    justify-content: center; 
+    text-align: center; 
 }
+
+.blog .row {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 30px; 
+}
+
 
 .blog .blog-item {
     position: relative;
     margin-bottom: 30px;
+    max-width: 600px; 
+    width: 100%; 
 }
 
 .blog .blog-img {
@@ -1409,8 +1423,8 @@ a:focus {
 .blog .blog-text {
     position: relative;
     padding: 30px;
-    border-right: 1px solid rgba(0, 0, 0, .07);
-    border-bottom: 1px solid rgba(0, 0, 0, .07);
+    border-right: 1px solid rgba(118, 114, 114, 0.07);
+    border-bottom: 1px solid rgba(121, 119, 119, 0.07);
     border-left: 1px solid rgba(0, 0, 0, .07);
 }
 
@@ -1435,18 +1449,26 @@ a:focus {
 .blog .blog-meta {
     position: relative;
     display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    align-items: center;
     margin-bottom: 15px;
+    text-align: center;
 }
 
 .blog .blog-meta p {
-    margin: 0 10px 0 0;
+    margin: 5px;
     font-size: 13px;
+    display: flex; 
+    align-items: center;
 }
 
 .blog .blog-meta i {
-    color: #414141;
-    margin-right: 5px;
+    color: #8f0404;
+    margin-right: 5px; 
+    font-size: 13px; 
 }
+
 
 .blog .blog-meta p:last-child {
     margin: 0;
