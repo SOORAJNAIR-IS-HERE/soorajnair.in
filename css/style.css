@@ -386,6 +386,8 @@ a:focus {
     background: rgba(37, 36, 36, 0.2); 
     box-shadow: inset 0 0 0 0 #ffffff;
     border-color: rgba(37, 36, 36, 0.2);
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
 }
 
 .hero .hero-btn .contact-btn:hover {
@@ -393,7 +395,10 @@ a:focus {
     background: rgba(37, 36, 36, 0.2); 
     box-shadow: inset 0 0 0 0 #ffffff;
     border-color: rgba(37, 36, 36, 0.2);
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
 }
+
 
 .hero .hero-btn .btn:first-child {
     margin-right: 10px;
