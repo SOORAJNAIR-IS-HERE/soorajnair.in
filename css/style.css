@@ -1,11 +1,15 @@
 /*******************************/
-/********* General CSS *********/
+/*********   General   *********/
 /*******************************/
+
+
 body {
     color: #797979;
-    background: #000000;
+    background: url('/img/background.png') no-repeat center center fixed;
+    background-size: cover; 
     font-family: 'Montserrat', sans-serif;
 }
+
 
 h1,
 h2, 
@@ -129,13 +133,12 @@ a:focus {
     color: #414141;
 }
 
+/* navbar */
 
-/**********************************/
-/*********** Nav Bar CSS **********/
-/**********************************/
+
 .navbar {
     position: relative;
-    transition: .5s;
+    transition: all 0.5s ease; /* Unified smooth transition */
     z-index: 999;
 }
 
@@ -143,22 +146,37 @@ a:focus {
     position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px 40px; /* Reduced padding for sticky effect */
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateY(0); /* Smooth transition */
+    transition: all 0.3s ease-in-out; /* Ensures smooth transformation */
 }
 
 .navbar .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     margin: 0;
     font-size: 45px;
-    line-height: 0px;
+    line-height: 1;
     font-weight: 700;
     letter-spacing: 2px;
-    transition: .5s;
-    
+    transition: color 0.3s ease, font-size 0.3s ease; /* Smoother hover */
+    color: #ffffff;
 }
 
 .navbar .navbar-brand img {
-    max-width: 100%;
-    max-height: 40px;
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease, height 0.3s ease, width 0.3s ease;
+}
+
+.navbar .navbar-brand:hover img {
+    transform: scale(1.6);
 }
 
 .navbar .dropdown-menu {
@@ -166,41 +184,49 @@ a:focus {
     border: 0;
     border-radius: 0;
     background: #f8f9fa;
+    transition: opacity 0.3s ease; /* Smooth dropdown */
 }
 
 @media (min-width: 992px) {
     .navbar {
         position: absolute;
         width: 100%;
-        padding: 30px 60px;
+        padding: 15px 60px;
         background: transparent !important;
-        border-bottom: 1px dashed rgba(256, 256, 256, .2);
+        border-bottom: 1px dashed rgba(256, 256, 256, 0.2);
         z-index: 9;
     }
     
     .navbar.nav-sticky {
-        padding: 10px 60px;
-        background: #000000 !important;
+        padding: 10px 40px;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
-    
-    .navbar .navbar-brand {
-        color: #ffffff;
-    }
-    
+
     .navbar.nav-sticky .navbar-brand {
         color: #EF233C;
     }
 
-    .navbar-light .navbar-nav .nav-link,
-    .navbar-light .navbar-nav .nav-link:focus {
-        padding: 10px 10px 8px 10px;
+    .navbar.nav-sticky .navbar-brand img {
+        height: 60px;
+        width: 60px;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        padding: 10px 15px;
         color: #ffffff;
-        font-size: 15px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 600;
+        transition: transform 0.3s ease, color 0.3s ease;
     }
     
-    .navbar-light.nav-sticky .navbar-nav .nav-link,
-    .navbar-light.nav-sticky .navbar-nav .nav-link:focus {
+    .navbar-light .navbar-nav .nav-link:hover {
+        transform: scale(1.12);
+        color: #ad1111;
+    }
+
+    .navbar-light.nav-sticky .navbar-nav .nav-link {
         color: #ffffff;
     }
 
@@ -212,6 +238,15 @@ a:focus {
     .navbar-light.nav-sticky .navbar-nav .nav-link:hover,
     .navbar-light.nav-sticky .navbar-nav .nav-link.active {
         color: #EF233C;
+    }
+
+    .navbar.nav-sticky .navbar-nav {
+        margin: 0;
+        justify-content: space-between;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 10px 20px;
     }
 }
 
@@ -227,6 +262,7 @@ a:focus {
     
     .navbar .navbar-nav {
         margin-top: 15px;
+        text-align: center;
     }
     
     .navbar a.nav-link {
@@ -239,19 +275,25 @@ a:focus {
 }
 
 
-/*******************************/
-/********** Hero CSS ***********/
-/*******************************/
+
+
+/* Hero */
+
+
 .hero {
     position: relative;
     width: 100%;
     margin-bottom: 45px;
     padding: 120px 0 0 0;
     overflow: hidden;
-    background: linear-gradient(rgba(38, 2, 2, 0.95), rgba(0, 0, 0, 0.95)), url('/img/hero-bg.jpg');
+    background: var(--primary-bg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: background 2s ease-in-out;
+    border: none; 
+    outline: none; 
+    box-shadow: none; 
 }
 
 .hero .container-fluid {
@@ -316,16 +358,41 @@ a:focus {
 
 .hero .hero-btn .btn {
     margin-top: 35px;
-    color: #EF233C;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(47, 46, 46, 0.7); 
+    backdrop-filter: blur(10px); 
+    transform: translateZ(0); 
+    border-radius: 50px; 
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
 }
 
 .hero .hero-btn .btn:hover {
-    color: #ffffff;
-    background: transparent;
+    transform: scale(1.1); 
+    backdrop-filter: blur(5px); 
+    transform: translateZ(0); 
+}
+
+.hero .hero-btn .hire-btn:hover {
+    color: #0dfa2d; 
+    background: rgba(37, 36, 36, 0.2); 
     box-shadow: inset 0 0 0 0 #ffffff;
-    border-color: #ffffff;
+    border-color: rgba(37, 36, 36, 0.2);
+}
+
+.hero .hero-btn .contact-btn:hover {
+    color: #05d8f0; 
+    background: rgba(37, 36, 36, 0.2); 
+    box-shadow: inset 0 0 0 0 #ffffff;
+    border-color: rgba(37, 36, 36, 0.2);
 }
 
 .hero .hero-btn .btn:first-child {
@@ -335,6 +402,7 @@ a:focus {
 @media (max-width: 991.98px) {
     .hero {
         padding-top: 60px;
+        border: none; 
     }
     
     .hero .hero-content {
@@ -364,6 +432,7 @@ a:focus {
     .hero {
         padding-top: 60px;
         padding-bottom: 60px;
+        border: none; 
     }
     
     .hero,
@@ -413,9 +482,17 @@ a:focus {
 }
 
 
-/*******************************/
-/******* Section Header ********/
-/*******************************/
+.navbar,
+.header {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+
+/* section header */
+
+
 .section-header {
     position: relative;
     margin-bottom: 45px;
@@ -431,6 +508,7 @@ a:focus {
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
+    will-change: transform, filter;
     background: #3e3e3e;
 }
 
@@ -469,14 +547,18 @@ a:focus {
     }
 }
 
+/* about */
 
-/*******************************/
-/********** About CSS **********/
-/*******************************/
+
 .about {
     position: relative;
     width: 100%;
     margin: -45px 0 45px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: #ffffff;
 }
 
 .about .col-lg-6 {
@@ -485,26 +567,57 @@ a:focus {
 
 .about .section-header {
     margin-bottom: 30px;
+    text-align: center;
+    color: #eaeaea;
 }
 
 .about .about-img {
     position: relative;
     height: 100%;
+    will-change: transform, filter;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .about .about-img img {
     position: relative;
     width: 100%;
     height: 100%;
+    will-change: transform, filter;
     object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about .about-img img:hover {
+    transform: scale(1.05);
 }
 
 .about .about-content {
-    padding: 0 60px;
+    padding: 20px 40px;
+    background: rgba(29, 28, 28, 0.5);
+    backdrop-filter: blur(8px);
+    transform: translateZ(0); 
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    will-change: transform, filter;
+    color: #eaeaea;
+    text-align: left;
+    max-width: 800px;
+}
+
+.about .about-content h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ffffff;
 }
 
 .about .about-text p {
     font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #d6d6d6;
 }
 
 .about .skills {
@@ -520,6 +633,7 @@ a:focus {
     margin-bottom: 5px;
     font-size: 16px;
     font-weight: 400;
+    color: #d6d6d6;
 }
 
 .about .skill-name p:last-child {
@@ -529,29 +643,47 @@ a:focus {
 .about .progress {
     height: 10px;
     border-radius: 10px;
-    background: #dddddd;
+    background: #3b3b3b;
 }
 
 .about .progress .progress-bar {
     width: 0px;
-    background: #860312;
+    background: #f82020;
     border-radius: 10px;
     transition: 2s;
 }
 
 .about .about-text a.btn {
     margin-top: 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #860312;
+    color: #fff;
+    text-decoration: none;
+    will-change: transform, filter;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+.about .about-text a.btn:hover {
+    background: #f82020;
 }
 
 @media (max-width: 991.98px) {
+    .about {
+        flex-direction: column;
+    }
+
     .about .about-content {
-        padding: 45px 15px 0 15px;
+        padding: 20px 15px;
     }
 }
 
-/*******************************/
-/******* Project CSS ********/
-/*******************************/
+
+/* project */
+
+
 .project {
     position: relative;
     padding: 45px 0 15px 0;
@@ -566,7 +698,7 @@ a:focus {
     content: '';
     position: absolute;
     width: 2px;
-    background: #EF233C;
+    background: #eb0303;
     top: 0;
     bottom: 0;
     left: 50%;
@@ -598,7 +730,7 @@ a:focus {
     top: 48px;
     right: -8px;
     background: #ffffff;
-    border: 2px solid #EF233C;
+    border: 2px solid #4f020b;
     border-radius: 16px;
     z-index: 1;
 }
@@ -608,20 +740,20 @@ a:focus {
 }
 
 .project .timeline .timeline-item::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 46px;
-  right: 10px;
-  z-index: 1;
-  border: 10px solid;
-  border-color: transparent transparent transparent #dddddd;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 46px;
+    right: 10px;
+    z-index: 1;
+    border: 10px solid;
+    border-color: transparent transparent transparent #FFFFFF;
 }
 
 .project .timeline .timeline-item.right::before {
-  left: 10px;
-  border-color: transparent #dddddd transparent transparent;
+    left: 10px;
+    border-color: transparent #FFFFFF transparent transparent;
 }
 
 .project .timeline .timeline-date {
@@ -630,7 +762,7 @@ a:focus {
     top: 44px;
     font-size: 16px;
     font-weight: 600;
-    color: #EF233C;
+    color: #dfd2d3;
     text-transform: uppercase;
     letter-spacing: 1px;
     z-index: 1;
@@ -648,21 +780,27 @@ a:focus {
 
 .project .timeline .timeline-text {
     padding: 30px;
-    background: #d4d3d3;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    -webkit-backdrop-filter: blur(10px);
+    will-change: transform, filter;
+    transform: translateZ(0); 
+    background: rgba(46, 45, 45, 0.5);
     position: relative;
-    border-right: 5px solid #b21e1e;
-    box-shadow: 0 0 60px rgba(0, 0, 0, .08);
+    border-right: 5px solid #620404;
+    color: #FFFFFF;
 }
 
 .project .timeline .timeline-item.right .timeline-text {
     border-right: none;
-    border-left: 5px solid #b21e1e;
+    border-left: 5px solid #620404;
 }
 
 .project .timeline .timeline-text h2 {
     margin: 0 0 5px 0;
     font-size: 22px;
     font-weight: 600;
+    color: #fb2424;
 }
 
 .project .timeline .timeline-text h4 {
@@ -670,11 +808,13 @@ a:focus {
     font-size: 16px;
     font-style: italic;
     font-weight: 400;
+    color: #FFFFFF;
 }
 
 .project .timeline .timeline-text p {
     margin: 0;
     font-size: 16px;
+    color: #d7d4d4;
 }
 
 @media (max-width: 767.98px) {
@@ -686,27 +826,27 @@ a:focus {
         width: 100%;
         padding-left: 38px;
     }
-    
+
     .project .timeline .timeline-item.left {
         padding-right: 0;
     }
-    
+
     .project .timeline .timeline-item.right {
         left: 0%;
         padding-left: 38px;
     }
 
-    .project .timeline .timeline-item.left::after, 
+    .project .timeline .timeline-item.left::after,
     .project .timeline .timeline-item.right::after {
         left: 0;
     }
-    
+
     .project .timeline .timeline-item.left::before,
     .project .timeline .timeline-item.right::before {
         left: 18px;
-        border-color: transparent #dddddd transparent transparent;
+        border-color: transparent #FFFFFF transparent transparent;
     }
-    
+
     .project .timeline .timeline-item.left .timeline-date,
     .project .timeline .timeline-item.right .timeline-date {
         position: relative;
@@ -716,17 +856,50 @@ a:focus {
         text-align: left;
         margin-bottom: 10px;
     }
-    
+
     .project .timeline .timeline-item.left .timeline-text,
     .project .timeline .timeline-item.right .timeline-text {
         border-right: none;
-        border-left: 5px solid #dddddd;
+        border-left: 5px solid #FFFFFF;
+        color: #FFFFFF;
     }
 }
 
-/*******************************/
-/********** Work CSS ***********/
-/*******************************/
+.project-heading {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(47, 46, 46, 0.7);
+    backdrop-filter: blur(10px);
+    transform: translateZ(0); 
+    border-radius: 50px;
+    will-change: transform, filter;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.project-heading:hover {
+    background: rgba(37, 36, 36, 0.2);
+    color: #f82020;
+    will-change: transform, filter;
+    transform: scale(1.30);
+}
+
+.project-heading-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+/* work */
+
 .work {
     position: relative;
     width: 100%;
@@ -738,12 +911,16 @@ a:focus {
     margin-bottom: 30px;
     display: flex;
     align-items: center;
-    box-shadow: inset 0 0 0 0 transparent;
-    transition: ease-out 0.5s;
+    border-radius: 20px;
+    background: transparent;
+    will-change: transform, filter;
+    box-shadow: none;
+    transition: all 0.3s ease-out;
+    overflow: hidden;
 }
 
 .work .work-item:hover {
-    box-shadow: inset 800px 0 0 0 #2f2e2e;
+    background: rgba(26, 25, 25, 0.9);
 }
 
 .work .work-icon {
@@ -753,24 +930,30 @@ a:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #5d5b5b;
-    background: #000000;
+    border: 2px solid rgba(93, 91, 91, 0.8);
+    background: rgba(44, 43, 43, 0.5);
+    backdrop-filter: blur(10px);
+    will-change: transform, filter;
+    transform: translateZ(0);
+    border-radius: 30px;
+    box-sizing: border-box;
 }
 
 .work .work-icon i {
     position: relative;
     font-size: 60px;
-    color: #be0c21;
-    transition: .3s;
+    color: #f82020;
+    will-change: transform, filter;
+    transition: 0.3s ease-in-out;
 }
 
 .work .work-item:hover i {
-    font-size: 75px;
+    font-size: 90px;
 }
 
 .work .work-text {
     position: relative;
-    width: calc(100% - 120px);
+    width: calc(100% - 150px);
     padding: 0 30px;
 }
 
@@ -778,13 +961,15 @@ a:focus {
     margin-bottom: 10px;
     font-size: 20px;
     font-weight: 600;
-    transition: 1s;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
 }
 
 .work .work-text p {
     margin: 0;
     font-size: 16px;
-    transition: 1s;
+    color: #d6d6d6;
+    transition: color 0.3s ease-in-out;
 }
 
 .work .work-item:hover .work-text h3,
@@ -792,21 +977,44 @@ a:focus {
     color: #ffffff;
 }
 
+.work .curved-box {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(47, 46, 46, 0.7);
+    backdrop-filter: blur(10px);
+    transform: translateZ(0);
+    border-radius: 50px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.work .curved-box:hover {
+    background: rgba(37, 36, 36, 0.2);
+    color: #f82020;
+    transform: scale(1.30);
+}
+
 @media (max-width: 575.98px) {
     .work .work-text h3 {
         font-size: 16px;
         margin-bottom: 5px;
     }
-    
+
     .work .work-text p {
         font-size: 14px;
     }
 }
 
 
-/*******************************/
-/******** Portfolio CSS ********/
-/*******************************/
+/* portflio */
+
 .portfolio {
     position: relative;
     padding: 45px 0 15px 0;
@@ -827,11 +1035,12 @@ a:focus {
     padding: 6px 12px;
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff;
-    background: #EF233C;
-    border: 2px solid transparent;
-    border-radius: 0;
-    box-shadow: inset 0 0 0 50px #EF233C;
+    color: #d2d1d1;
+    background: none;
+    border: 2px solid #d8d4d4;
+    will-change: transform, filter;
+    border-radius: 10px;
+    box-shadow: none;
     transition: ease-out 0.3s;
     -webkit-transition: ease-out 0.3s;
     -moz-transition: ease-out 0.3s;
@@ -839,10 +1048,11 @@ a:focus {
 
 .portfolio #portfolio-filter li:hover,
 .portfolio #portfolio-filter li.filter-active {
-    color: #EF233C;
+    color: #a4999b;
     background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
+    box-shadow: none;
     border-color: #EF233C;
+    border-radius: 60px;
 }
 
 .portfolio .portfolio-item {
@@ -852,24 +1062,30 @@ a:focus {
 .portfolio .portfolio-wrap {
     position: relative;
     width: 100%;
+    background: transparent;
+    border-radius: 40px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .portfolio .portfolio-img {
-    position: relative;
-    overflow: hidden;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: inherit;
+    transition: transform 0.5s ease-in-out;
 }
 
 .portfolio .portfolio-img img {
-    position: relative;
     width: 100%; 
     height: 100%; 
-    object-fit: cover;
-    transform: scale(1.1);
-    transition: .5s;
+    object-fit: cover; 
+    border-radius: inherit;
+    transition: transform 0.5s ease-in-out;
 }
 
 .portfolio .portfolio-item:hover img {
-    margin-left: 15px;
+    transform: scale(1.2);
 }
 
 .portfolio .portfolio-text {
@@ -879,8 +1095,15 @@ a:focus {
     margin: -30px 15px 30px 15px;
     display: flex;
     align-items: center;
-    background: #ffffff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, .12);
+    background: rgba(104, 103, 103, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateZ(0);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.12);
+    will-change: transform, filter;
+    color: #fff;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 .portfolio .portfolio-text h3 {
@@ -890,6 +1113,7 @@ a:focus {
     margin: 0 0 0 15px;
     white-space: nowrap;
     overflow: hidden;
+    color: #000000;
 }
 
 .portfolio .portfolio-text a.btn {
@@ -900,26 +1124,60 @@ a:focus {
     align-items: center;
     justify-content: center;
     font-size: 45px;
-    font-weight: 100;
+    font-weight: 700;
+    background-color: rgb(98, 95, 95);
+    will-change: transform, filter;
+    color: #000000;
+    border-radius: 25%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
-.portfolio .portfolio-item:hover a.btn {
-    color: #EF233C;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #EF233C;
-    border-color: #EF233C;
+.portfolio .portfolio-text a.btn:hover {
+    background-color: rgb(125, 123, 123); 
+    color: #910707; 
+    transform: scale(1.2); 
+}
+
+.portfolio-heading { 
+    display: inline-block;
+    padding: 12px 24px; 
+    background: rgba(47, 46, 46, 0.9); 
+    backdrop-filter: blur(15px); 
+    transform: translateZ(0);
+    border-radius: 50px; 
+    color: #ffffff; 
+    font-size: 22px;
+    will-change: transform, filter;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 25px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4); 
+    cursor: pointer;
+}
+
+.portfolio-heading:hover {
+    background: rgba(37, 36, 36, 0.6); 
+    color: #f82020;
+    transform: scale(1.25); 
 }
 
 
-/*******************************/
-/********* Banner CSS **********/
-/*******************************/
+/* Banner */
+
+
 .banner {
     position: relative;
     width: 100%;
     margin: 45px 0;
     padding: 90px 0;
-    background: #ca081e;
+    background: rgba(46, 45, 45, 0.5);
+    backdrop-filter: blur(10px); 
+    border-radius: 80px;
+    -webkit-backdrop-filter: blur(10px); 
+    transform: translateZ(0);
 }
 
 .banner .container {
@@ -945,32 +1203,44 @@ a:focus {
 }
 
 .banner .section-header h2 span {
-    color: #414141;
+    color: #f60303;
     font-size: 50px;
 }
 
 .banner .banner-text p {
     font-size: 18px;
-    color: #ffffff;
+    color: #d7d4d4;
 }
 
 .banner .banner-text .btn {
-    margin-top: 15px;
-    color: #EF233C;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
+    margin-top: 13px;
+    color: #ff0000;
+    background: rgba(7, 7, 7, 0.3); 
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(5px);
+    transform: translateZ(0);
+    box-shadow: inset 0 0 0 50px rgba(4, 4, 4, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    border-radius: 30px;
+    transition: all 0.3s ease; 
 }
 
 .banner .banner-text .btn:hover {
-    color: #ffffff;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #ffffff;
-    border-color: #ffffff;
+    color: #ffffff; 
+    background: rgba(0, 0, 0, 0.1); 
+    box-shadow: inset 0 0 0 0 rgba(14, 14, 14, 0.1);
+    border-color: #ff0000;
 }
 
-/*******************************/
-/********* Knowledge CSS *******/
-/*******************************/
+.banner .btn:hover {
+    background: rgba(37, 36, 36, 0.2); 
+    color: #f82020; 
+    transform: scale(1.07); 
+}
+
+/* knowledge */
+
+
 .knowledge {
     position: relative;
     width: 100%;
@@ -988,7 +1258,20 @@ a:focus {
 .knowledge .knowledge-item {
     position: relative;
     margin-bottom: 30px;
-    background: #e8e7e7;
+    background: rgba(46, 45, 45, 0.5); 
+    backdrop-filter: blur(10px); 
+    border-radius: 80px; 
+    -webkit-backdrop-filter: blur(10px); 
+    transform: translateZ(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    will-change: transform, filter;
+    padding: 20px; 
+    transition: all 0.3s ease-in-out; 
+}
+
+.knowledge .knowledge-item:hover {
+    transform: scale(1.10); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .knowledge .featured-item {
@@ -1086,136 +1369,48 @@ a:focus {
     border-color: #EF233C;
 }
 
-
-/*******************************/
-/*********** Team CSS **********/
-/*******************************/
-.team {
-    position: relative;
-    width: 100%;
-    padding: 45px 0 15px 0;
-}
-
-.team .team-item {
-    position: relative;
-    background: #ffffff;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    box-shadow: inset 0 0 0 0 transparent;
-    transition: ease-out 0.5s;
-}
-
-.team .team-img {
-    position: relative;
-    width: 50%;
-    overflow: hidden;
-}
-
-.team .team-img img {
-    position: relative;
-    width: 100%;
-    transition: .5s;
-}
-
-.team .team-text {
-    position: relative;
-    width: 50%;
-    padding: 0 30px;
-}
-
-.team .team-text h2 {
-    color: #EF233C;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 5px;
-    transition: 1s;
-}
-
-.team .team-text h4 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    transition: 1s;
-}
-
-.team .team-text p {
+.knowledge-heading { 
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(47, 46, 46, 0.7); 
+    backdrop-filter: blur(10px); 
+    will-change: transform, filter;
+    transform: translateZ(0);
+    border-radius: 50px; 
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
     margin-bottom: 20px;
-    transition: 1s;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;
 }
 
-.team .team-social {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.team .team-social a.btn {
-    width: 35px;
-    height: 35px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: normal;
-    margin-right: 5px;
-}
-
-.team .team-item:hover {
-    box-shadow: inset 800px 0 0 0 #EF233C;
-}
-
-.team .team-item:hover .team-img img {
-    transform: scale(1.2);
-}
-
-.team .team-item:hover .team-text h2,
-.team .team-item:hover .team-text h4,
-.team .team-item:hover .team-text p {
-    color: #ffffff;
-}
-
-.team .team-item:hover .team-social a.btn {
-    background: #ffffff;
-}
-
-.team .team-item:hover .team-social a.btn:hover {
-    border-color: #ffffff;
-}
-
-@media(max-width: 575.98px) {
-    .team .team-text {
-        padding: 0 15px;
-    }
-    
-    .team .team-text h2 {
-        font-size: 16px;
-        margin-bottom: 0;
-    }
-
-    .team .team-text h4 {
-        margin-bottom: 5px;
-    }
-
-    .team .team-text p {
-        font-size: 14px;
-        line-height: 18px;
-        margin-bottom: 10px;
-    }
+.knowledge-heading:hover {
+    background: rgba(37, 36, 36, 0.2); 
+    color: #f82020; 
+    will-change: transform, filter;
+    transform: scale(1.35); 
 }
 
 
-/*******************************/
-/******* Testimonial CSS *******/
-/*******************************/
+/* Testimonial */
+
 .testimonial {
     position: relative;
     margin: 45px 0;
     padding: 90px 0;
-    background: #7f0210;
+    background: rgba(42, 42, 42, 0.5); 
+    backdrop-filter: blur(10px); 
+    transform: translateZ(0);
+    -webkit-backdrop-filter: blur(10px); 
+    will-change: transform, filter;
+    border-radius: 90px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    color: #fff; 
+    z-index: 1;
 }
 
 .testimonial .container {
@@ -1227,9 +1422,22 @@ a:focus {
     text-align: center;
 }
 
+
+.testimonial .testimonial-icon a {
+    display: inline-block;
+    text-decoration: none;
+}
+
 .testimonial .testimonial-icon i {
     font-size: 60px;
     color: rgba(256, 256, 256, .5);
+    transition: transform 0.3s ease-in-out; 
+}
+
+.testimonial .testimonial-icon a:hover i,
+.testimonial .testimonial-icon a:focus i {
+    transform: scale(1.5); 
+    color: #ff0000; 
 }
 
 .testimonial .testimonial-item {
@@ -1248,7 +1456,7 @@ a:focus {
     margin: 0 auto;
     width: 120px;
     padding: 10px;
-    border: 5px dotted #ffffff;
+    border: 5px dotted #b60606;
     border-radius: 100px;
 }
 
@@ -1257,13 +1465,30 @@ a:focus {
     margin-top: -70px;
     padding: 65px 35px 30px 35px;
     text-align: center;
-    background: #ffffff;
-    border-radius: 500px;
+    background: none;
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+    transform: translateZ(0);
+    will-change: transform, filter;
+    border-radius: 50px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    transition: transform 0.3s ease-in-out; 
+}
+
+.testimonial .testimonial-text:hover {
+    transform: scale(1.2); 
 }
 
 .testimonial .testimonial-item p {
     font-size: 18px;
     font-style: italic;
+}
+
+.testimonial .testimonial-text h6 {
+    color: #dbd6d6;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 .testimonial .testimonial-text h3 {
@@ -1274,7 +1499,7 @@ a:focus {
 }
 
 .testimonial .testimonial-text h4 {
-    color: #666666;
+    color: #d5d1d1;
     font-size: 14px;
     margin-bottom: 0;
 }
@@ -1290,32 +1515,42 @@ a:focus {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(256, 256, 256, .5);
+    background: rgba(80, 80, 80, 0.6);
 }
 
 .testimonial .owl-dot.active {
-    background: #bcbbbb;
+    background: #cd0b0b;
 }
 
 
-/*******************************/
-/********* Contact CSS *********/
-/*******************************/
+/* Contact */
+
 .contact {
     position: relative;
     width: 100%;
-    margin: 45px 0;
-    background: #300107;
+    margin: none;
+    background: rgba(33, 33, 33, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateZ(0);
+    border-radius: 90px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    will-change: transform, filter;
+    color: #fff;
+    z-index: 1;
+    padding: 20px; 
 }
 
 .contact .contact-form {
     position: relative;
-    padding: 90px 0 90px 45px;
-    background: #300202;
+    padding: 90px 0 90px 0; 
+    background: transparent;
+    box-shadow: none; /
 }
 
+
 .contact .contact-form input {
-    color: #ffffff;
+    color: #cfcaca;
     padding: 15px 0;
     background: none;
     border-radius: 0;
@@ -1324,14 +1559,21 @@ a:focus {
 }
 
 .contact .contact-form textarea {
-    color: #ffffff;
+    color: #b1b1b1;
     height: 90px;
     padding: 15px 0;
-    background: none;
+    background: transparent; 
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(256, 256, 256, .5);
+    outline: none; 
 }
+
+.contact .contact-form textarea:focus {
+    background: transparent; 
+    border-bottom: 1px solid #373636; 
+}
+
 
 .contact .contact-form .form-control::placeholder {
     color: #ffffff;
@@ -1345,17 +1587,31 @@ a:focus {
 
 .contact .contact-form .btn {
     margin-top: 35px;
-    color: #130204;
-    background: #ffffff;
-    box-shadow: inset 0 0 0 50px #ffffff;
+    color: #bcbaba;
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 15px;
+    border: 2px solid rgba(198, 193, 193, 0.4); 
+    backdrop-filter: blur(10px); 
+    transform: translateZ(0);
+    padding: 10px 30px; 
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
 }
 
 .contact .contact-form .btn:hover {
-    color: #ffffff;
-    background: transparent;
-    box-shadow: inset 0 0 0 0 #ffffff;
-    border-color: #ffffff;
+    color: #ffffff; 
+    background: rgba(169, 169, 169, 0.3); 
+    border-color: rgba(227, 3, 3, 0.8); 
+    border-radius: 60px;
+    transform: scale(1.2); 
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.4); 
 }
+
+
 
 .contact .help-block ul {
     margin: 0;
@@ -1377,32 +1633,56 @@ a:focus {
 }
 
 
-/*******************************/
-/*********** Blog CSS **********/
-/*******************************/
+/* Blog */
+
 
 .blog {
     position: relative;
     width: 100%;
     padding: 45px 0 15px 0;
     display: flex;
-    justify-content: center; 
-    text-align: center; 
+    justify-content: center;
+    text-align: center;
 }
 
 .blog .row {
     display: flex;
-    justify-content: center; 
-    flex-wrap: wrap; 
-    gap: 30px; 
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
+
+.blog-heading {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(47, 46, 46, 0.7);
+    backdrop-filter: blur(10px); 
+    transform: translateZ(0);
+    border-radius: 50px; 
+    will-change: transform, filter;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;
+}
+
+.blog-heading:hover {
+    background: rgba(37, 36, 36, 0.2); 
+    color: #f82020;
+    transform: scale(1.2); 
+}
 
 .blog .blog-item {
     position: relative;
     margin-bottom: 30px;
-    max-width: 600px; 
-    width: 100%; 
+    max-width: 600px;
+    width: 100%;
 }
 
 .blog .blog-img {
@@ -1413,7 +1693,7 @@ a:focus {
 
 .blog .blog-img img {
     width: 100%;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .blog .blog-item:hover img {
@@ -1425,7 +1705,7 @@ a:focus {
     padding: 30px;
     border-right: 1px solid rgba(118, 114, 114, 0.07);
     border-bottom: 1px solid rgba(121, 119, 119, 0.07);
-    border-left: 1px solid rgba(0, 0, 0, .07);
+    border-left: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 .blog .blog-text h2 {
@@ -1449,8 +1729,8 @@ a:focus {
 .blog .blog-meta {
     position: relative;
     display: flex;
-    justify-content: center; 
-    flex-wrap: wrap; 
+    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 15px;
     text-align: center;
@@ -1459,29 +1739,79 @@ a:focus {
 .blog .blog-meta p {
     margin: 5px;
     font-size: 13px;
-    display: flex; 
+    display: flex;
     align-items: center;
 }
 
 .blog .blog-meta i {
-    color: #8f0404;
-    margin-right: 5px; 
-    font-size: 13px; 
+    color: #ae0c0c;
+    margin-right: 5px;
+    font-size: 13px;
 }
-
 
 .blog .blog-meta p:last-child {
     margin: 0;
 }
 
 
-/*******************************/
-/********* Footer CSS **********/
-/*******************************/
+.blog .read-more-btn {
+    display: inline-block;
+    position: relative;
+    padding: 10px 20px;
+    background: rgba(38, 38, 38, 0.7);
+    color: #d0cdcd;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 20px;
+    will-change: transform, filter;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    transform: translateZ(0);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.blog .read-more-btn:hover {
+    background: rgba(37, 36, 36, 0.2);
+    color: #f82020;
+    transform: scale(1.2);
+}
+
+.blog .read-more-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(40, 40, 40, 0.1); 
+    will-change: transform, filter;
+    filter: blur(10px);
+    transform: translateZ(0);
+    z-index: 0;
+    transition: all 0.3s ease-in-out;
+    border-radius: inherit;
+}
+
+.blog .read-more-btn:hover::before {
+    background: rgba(54, 53, 53, 0.2); 
+}
+
+
+.blog .read-more-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Footer */
+
 .footer {
     position: relative;
     margin-top: 45px;
-    background: #000000;
 }
 
 .footer .container-fluid {
@@ -1512,6 +1842,7 @@ a:focus {
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; 
 }
 
 .footer .footer-menu p {
@@ -1530,16 +1861,18 @@ a:focus {
 .footer .footer-social {
     position: relative;
     margin-top: 15px;
+    text-align: center; 
 }
 
 .footer .footer-social a {
     display: inline-block;
+    margin: 0 10px; 
 }
 
 .footer .footer-social a i {
     margin-right: 15px;
-    font-size: 20px;
-    color: #ffffff;
+    font-size: 27px;
+    color: #e20c0c;
     transition: .3s;
 }
 
@@ -1603,5 +1936,48 @@ a:focus {
         font-size: 16px;
         line-height: 16px;
         padding: 0 5px;
+    }
+}
+
+
+/* Back to Top btn */
+
+
+.btn.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #817e7e; 
+    border-radius: 18px; 
+    backdrop-filter: blur(10px); 
+    transform: translateZ(0); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    will-change: transform, filter;
+    color: #ffffff;
+    font-size: 18px; 
+    z-index: 1000;
+    transition: all 0.3s ease-in-out; 
+}
+
+.btn.back-to-top:hover {
+    background: rgba(108, 108, 108, 0.2);
+    transform: scale(1.2); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn.back-to-top.hidden {
+    visibility: hidden;
+}
+
+@media (max-width: 575.98px) {
+    .btn.back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
     }
 }
