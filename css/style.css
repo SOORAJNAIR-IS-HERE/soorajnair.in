@@ -171,7 +171,8 @@ a:focus {
 .navbar .navbar-brand img {
     height: 80px;
     width: 80px;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 50%; 
     transition: transform 0.3s ease, height 0.3s ease, width 0.3s ease;
 }
 
