@@ -1640,8 +1640,6 @@ a:focus {
 
 
 /* Blog */
-
-
 .blog {
     position: relative;
     width: 100%;
@@ -1655,9 +1653,20 @@ a:focus {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 30px; /* Space between blog items */
 }
 
+.blog .col-lg-6 {
+    flex: 0 0 calc(50% - 15px); /* Two columns per row */
+    max-width: calc(50% - 15px);
+}
+
+@media (max-width: 768px) {
+    .blog .col-lg-6 {
+        flex: 0 0 100%; /* Stack items vertically on smaller screens */
+        max-width: 100%;
+    }
+}
 
 .blog-heading {
     display: inline-block;
@@ -1759,7 +1768,6 @@ a:focus {
     margin: 0;
 }
 
-
 .blog .read-more-btn {
     display: inline-block;
     position: relative;
@@ -1805,7 +1813,6 @@ a:focus {
 .blog .read-more-btn:hover::before {
     background: rgba(54, 53, 53, 0.2); 
 }
-
 
 .blog .read-more-btn span {
     position: relative;
