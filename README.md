@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/file.png" alt="SJ Logo" width="650"/>
+  <img src="img/file.png" alt="SJ Logo" width="300"/>
 </p>
 
 # SJ's Portfolio Website
